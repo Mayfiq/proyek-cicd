@@ -70,8 +70,9 @@ jobs:
           docker pull ghcr.io/${{ github.repository }}:latest
           docker run -d --name web-app -p 8080:80 ghcr.io/${{ github.repository }}:latest
           
-      - name: Health check
+      - name: Check and Health Check
         shell: cmd
         run: |
-          ping 127.0.0.1 -n 4 > nul
-          curl -f http://localhost:8080 || exit 1
+          ping 127.0.0.1 -n 11 > nul
+          docker ps -a
+          curl -f http://127.0.0.1:8080 || exit 1
