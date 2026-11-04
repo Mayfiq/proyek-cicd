@@ -65,8 +65,7 @@ jobs:
       - name: Deploy container
         shell: cmd
         run: |
-          docker stop web-app || exit 0
-          docker rm web-app || exit 0
+          docker rm -f web-app 2>nul
           docker pull ghcr.io/${{ github.repository }}:latest
           docker run -d --name web-app -p 8080:80 ghcr.io/${{ github.repository }}:latest
           
