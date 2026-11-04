@@ -66,8 +66,8 @@ jobs:
         shell: cmd
         run: |
           docker rm -f web-app 2>nul
-          docker pull ghcr.io/${{ github.repository }}:latest
-          docker run -d --name web-app -p 8080:80 ghcr.io/${{ github.repository }}:latest
+          docker pull ghcr.io/mayfiq/proyek-cicd:latest
+          docker run -d --name web-app -p 8080:80 ghcr.io/mayfiq/proyek-cicd:latest
           
       - name: Check and Health Check
         shell: cmd
